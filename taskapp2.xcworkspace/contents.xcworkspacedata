@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Task.swift">
-   </FileRef>
-   <FileRef
       location = "group:taskapp2.xcodeproj">
    </FileRef>
    <FileRef
