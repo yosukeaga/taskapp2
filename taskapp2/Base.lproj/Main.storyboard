@@ -18,21 +18,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MLi-eS-rrK">
-                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MLi-eS-rrK">
+                                <rect key="frame" x="0.0" y="64" width="600" height="492"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="9C7-rs-G9C"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="Xoa-Pn-Jp5"/>
                                 </connections>
                             </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="bMq-Wf-EQW">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="MLi-eS-rrK" secondAttribute="bottom" id="QTL-4b-72h"/>
-                            <constraint firstItem="MLi-eS-rrK" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Ras-Y7-8RO"/>
-                            <constraint firstAttribute="trailing" secondItem="MLi-eS-rrK" secondAttribute="trailing" id="fmZ-oS-5xD"/>
-                            <constraint firstItem="MLi-eS-rrK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="zhv-FF-nTs"/>
+                            <constraint firstAttribute="trailing" secondItem="MLi-eS-rrK" secondAttribute="trailing" id="9ZK-cJ-ezn"/>
+                            <constraint firstItem="MLi-eS-rrK" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="KQb-DD-TMo"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="bMq-Wf-EQW" secondAttribute="bottom" id="ajN-VL-QS0"/>
+                            <constraint firstItem="MLi-eS-rrK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="dKq-KV-VPI"/>
+                            <constraint firstAttribute="trailing" secondItem="bMq-Wf-EQW" secondAttribute="trailing" id="eRr-9U-DLt"/>
+                            <constraint firstItem="bMq-Wf-EQW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="loq-tz-sRI"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="FYQ-DU-E6n">
@@ -147,6 +153,7 @@
         <!--Navigation Controller-->
         <scene sceneID="KZD-U3-RCF">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7xE-CE-5Y4" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BjW-ke-oZj" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="aPn-8X-Wg3">
@@ -158,7 +165,6 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="J8T-83-jhF"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7xE-CE-5Y4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="354" y="-366"/>
         </scene>
