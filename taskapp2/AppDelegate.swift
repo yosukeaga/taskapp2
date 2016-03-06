@@ -12,10 +12,44 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
-           
+    
+    
+    ///アプリのプロセスが終了した状態、application：didFinishLaunchingWithOptions
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
+        // ユーザに通知の許可を求める　UIUserNotificationSettingsのforTypesでAlertとSoundを設定
+        //registerUserNotificationSettings(settings)で通知タイプの登録
+        let settings = UIUserNotificationSettings(forTypes: [UIUserNotificationType.Alert, UIUserNotificationType.Sound], categories: nil)
+        UIApplication.sharedApplication().registerUserNotificationSettings(settings)
+        
+        // 通知からの起動かどうか確認する
+        if let notification = launchOptions?[UIApplicationLaunchOptionsLocalNotificationKey] as? UILocalNotification {
+            // 通知領域から削除する
+            application.cancelLocalNotification(notification)
+        }
+        return true
     }
+    
+    ///フォアグランド及びバックグラウンドの時、application：didReceiveLocalNotificationメソッド内//
+    func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
+        // アプリがフォアグランドにいる時に通知が届いた時
+        if application.applicationState == UIApplicationState.Active {
+            // アラートを表示する
+            let alertController = UIAlertController(title: "時間になりました", message:notification.alertBody, preferredStyle: .Alert)
+            let defaultAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil)
+            alertController.addAction(defaultAction)
+            
+            window?.rootViewController!.presentViewController(alertController, animated: true, completion: nil)
+        } else {
+            // バックグランドにいる時に通知が届いた時はログに出力するだけ
+            print("\(notification.alertBody)")
+        }
+        
+        // 通知領域から削除する
+        application.cancelLocalNotification(notification)
+    }
+    
+    
 
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -41,4 +75,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 
-
+}

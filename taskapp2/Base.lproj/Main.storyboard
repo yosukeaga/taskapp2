@@ -63,61 +63,78 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="タイトル" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JRc-yM-yYw">
-                                <rect key="frame" x="20" y="94" width="68" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タイトル" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JRc-yM-yYw">
+                                <rect key="frame" x="20" y="74" width="68" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="内容" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DtL-r1-UNN">
-                                <rect key="frame" x="20" y="165" width="34" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="内容" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DtL-r1-UNN">
+                                <rect key="frame" x="20" y="216" width="34" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tmh-B4-wY7">
-                                <rect key="frame" x="20" y="125" width="560" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tmh-B4-wY7">
+                                <rect key="frame" x="20" y="105" width="560" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hqL-ga-39f">
-                                <rect key="frame" x="20" y="196" width="560" height="120"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hqL-ga-39f">
+                                <rect key="frame" x="20" y="247" width="560" height="120"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="120" id="a8h-Xl-UJD"/>
+                                    <constraint firstAttribute="height" constant="120" id="QZp-fZ-PMy"/>
                                 </constraints>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <datePicker contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="5rM-gW-0GP">
-                                <rect key="frame" x="20" y="324" width="560" height="120"/>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="5rM-gW-0GP">
+                                <rect key="frame" x="20" y="377" width="560" height="120"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="120" id="wwU-Nx-Mo4"/>
+                                    <constraint firstAttribute="height" constant="120" id="NK4-55-80K"/>
                                 </constraints>
                                 <date key="date" timeIntervalSinceReferenceDate="478856474.41480303">
                                     <!--2016-03-05 07:41:14 +0000-->
                                 </date>
                             </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="カテゴリー" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T32-Er-Bzc">
+                                <rect key="frame" x="20" y="145" width="85" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uAn-Hn-BUJ">
+                                <rect key="frame" x="20" y="176" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="hqL-ga-39f" firstAttribute="top" secondItem="DtL-r1-UNN" secondAttribute="bottom" constant="10" id="0bg-wD-vqr"/>
-                            <constraint firstItem="5rM-gW-0GP" firstAttribute="top" secondItem="hqL-ga-39f" secondAttribute="bottom" constant="10" id="7hv-EY-uo0"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="hqL-ga-39f" secondAttribute="trailing" id="9Tj-C3-GRP"/>
-                            <constraint firstItem="5rM-gW-0GP" firstAttribute="leading" secondItem="NZy-cQ-mAg" secondAttribute="leadingMargin" id="FmR-Rk-naA"/>
-                            <constraint firstItem="hqL-ga-39f" firstAttribute="leading" secondItem="NZy-cQ-mAg" secondAttribute="leadingMargin" id="GKK-wM-MIa"/>
-                            <constraint firstItem="JRc-yM-yYw" firstAttribute="leading" secondItem="NZy-cQ-mAg" secondAttribute="leadingMargin" id="J7a-AF-CTe"/>
-                            <constraint firstItem="DtL-r1-UNN" firstAttribute="top" secondItem="tmh-B4-wY7" secondAttribute="bottom" constant="10" id="OdE-06-DKP"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="tmh-B4-wY7" secondAttribute="trailing" id="dKX-t6-8ob"/>
-                            <constraint firstItem="5rM-gW-0GP" firstAttribute="trailing" secondItem="NZy-cQ-mAg" secondAttribute="trailingMargin" id="koP-nQ-rT5"/>
-                            <constraint firstItem="tmh-B4-wY7" firstAttribute="top" secondItem="JRc-yM-yYw" secondAttribute="bottom" constant="10" id="oOt-uq-ez1"/>
-                            <constraint firstItem="JRc-yM-yYw" firstAttribute="top" secondItem="Mbt-z6-Zv3" secondAttribute="bottom" constant="74" id="t2A-oa-uwl"/>
-                            <constraint firstItem="tmh-B4-wY7" firstAttribute="leading" secondItem="NZy-cQ-mAg" secondAttribute="leadingMargin" id="tXR-fO-WNB"/>
-                            <constraint firstItem="DtL-r1-UNN" firstAttribute="leading" secondItem="NZy-cQ-mAg" secondAttribute="leadingMargin" id="txI-9j-bfj"/>
+                            <constraint firstItem="hqL-ga-39f" firstAttribute="top" secondItem="DtL-r1-UNN" secondAttribute="bottom" constant="10" id="4Nc-mv-uLI"/>
+                            <constraint firstItem="JRc-yM-yYw" firstAttribute="leading" secondItem="NZy-cQ-mAg" secondAttribute="leadingMargin" id="AuB-mH-K4J"/>
+                            <constraint firstItem="uAn-Hn-BUJ" firstAttribute="top" secondItem="T32-Er-Bzc" secondAttribute="bottom" constant="10" id="BsV-gA-3AP"/>
+                            <constraint firstItem="uAn-Hn-BUJ" firstAttribute="leading" secondItem="NZy-cQ-mAg" secondAttribute="leadingMargin" id="GN1-Da-h4T"/>
+                            <constraint firstItem="DtL-r1-UNN" firstAttribute="top" secondItem="uAn-Hn-BUJ" secondAttribute="bottom" constant="10" id="JFJ-8c-bFV"/>
+                            <constraint firstItem="hqL-ga-39f" firstAttribute="trailing" secondItem="NZy-cQ-mAg" secondAttribute="trailingMargin" id="JXK-dW-93u"/>
+                            <constraint firstItem="5rM-gW-0GP" firstAttribute="top" secondItem="hqL-ga-39f" secondAttribute="bottom" constant="10" id="Ojw-Kk-y5h"/>
+                            <constraint firstItem="DtL-r1-UNN" firstAttribute="leading" secondItem="NZy-cQ-mAg" secondAttribute="leadingMargin" id="RGR-uk-cKZ"/>
+                            <constraint firstItem="5rM-gW-0GP" firstAttribute="leading" secondItem="NZy-cQ-mAg" secondAttribute="leadingMargin" id="YhX-Ml-3cS"/>
+                            <constraint firstItem="JRc-yM-yYw" firstAttribute="top" secondItem="Mbt-z6-Zv3" secondAttribute="bottom" constant="10" id="ZUv-Zc-xAT"/>
+                            <constraint firstItem="uAn-Hn-BUJ" firstAttribute="trailing" secondItem="NZy-cQ-mAg" secondAttribute="trailingMargin" id="ZzI-sp-lOg"/>
+                            <constraint firstItem="tmh-B4-wY7" firstAttribute="trailing" secondItem="NZy-cQ-mAg" secondAttribute="trailingMargin" id="cIK-sO-6ym"/>
+                            <constraint firstItem="T32-Er-Bzc" firstAttribute="leading" secondItem="NZy-cQ-mAg" secondAttribute="leadingMargin" id="dnd-QU-KpI"/>
+                            <constraint firstItem="T32-Er-Bzc" firstAttribute="top" secondItem="tmh-B4-wY7" secondAttribute="bottom" constant="10" id="fvU-sx-xX8"/>
+                            <constraint firstItem="tmh-B4-wY7" firstAttribute="top" secondItem="JRc-yM-yYw" secondAttribute="bottom" constant="10" id="k5x-MS-Mqj"/>
+                            <constraint firstItem="tmh-B4-wY7" firstAttribute="leading" secondItem="NZy-cQ-mAg" secondAttribute="leadingMargin" id="l48-Of-0C5"/>
+                            <constraint firstItem="5rM-gW-0GP" firstAttribute="trailing" secondItem="NZy-cQ-mAg" secondAttribute="trailingMargin" id="lgu-U8-qV2"/>
+                            <constraint firstItem="hqL-ga-39f" firstAttribute="leading" secondItem="NZy-cQ-mAg" secondAttribute="leadingMargin" id="zTC-10-MfS"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="categoryTextField" destination="uAn-Hn-BUJ" id="L2o-mU-CVD"/>
                         <outlet property="contentsTextView" destination="hqL-ga-39f" id="rlp-5V-MFi"/>
                         <outlet property="datePicker" destination="5rM-gW-0GP" id="ARD-Ii-VhZ"/>
                         <outlet property="titleTextField" destination="tmh-B4-wY7" id="dE9-dP-6Vq"/>

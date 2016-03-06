@@ -13,11 +13,18 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    let realm = try! Realm()
     
+    //try!はエラーが起こる可能性がある際に付ける
+    let realm = try!Realm()
+    //taskArrayは配列　object(クラス名)でクラス指定で一覧を取得、sorted:ascendingで並び替えた橋列を取得
     let taskArray = try! Realm().objects(Task).sorted("date", ascending: false)
     
     
+    //入力画面がからBackしていた際のTableVeiwを更新させる
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
     
     
     override func viewDidLoad() {
@@ -31,17 +38,19 @@ class ViewController: UIViewController {
     }
 
 
-    //DataSourceプロトコル
-    func tableView(tableView:UITableView, numberOfRowsINSection section: Int) -> Int {
-    return taskArray.count
-        
+    ///DataSourceプロトコル　tableViewのデータの数＝セルの数をreturnで返すメソッド
+    func tableView(tableView:UITableView, numberOfRowsInSection section: Int) -> Int {
+      return taskArray.count
+         //taskArrayの配列の個数をcountプロパティで数えreturnで返す
     }
     
-    // 各セルの内容を返すメソッド
+    
+    /// 各セルの内容を返すメソッド
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // 再利用可能な cell を得る
-        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
         
+        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
+        //おすすめlet cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)        
         let task = taskArray[indexPath.row]
         cell.textLabel?.text = task.title
         
@@ -69,14 +78,36 @@ class ViewController: UIViewController {
     // Delete ボタンが押された時に呼ばれるメソッド
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         
-          
+        if editingStyle == UITableViewCellEditingStyle.Delete {
+            
+            // ローカル通知をキャンセルする
+            let task = taskArray[indexPath.row]
+            
+            for notification in UIApplication.sharedApplication().scheduledLocalNotifications! {
+                if notification.userInfo!["id"] as! Int == task.id {
+                    UIApplication.sharedApplication().cancelLocalNotification(notification)
+                    break
+                }
+            }
+            
+            // データベースから削除する
+            try! realm.write {
+                         //taskArrayの配列から抜き出してdeleteしている
+                self.realm.delete(self.taskArray[indexPath.row])
+                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
+            }
+        }
     }
     
+   
+    //遷移されるときに呼ばれるメソッド
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let inputViewCpntroller:InputViewController = segue.destinationViewController as!InputViewController
         
+        //cellをタップしたときのパターン
         if segue.identifier == "cellSegue"{
         let indexPath = self.tableView.indexPathForSelectedRow
+            print(indexPath)
             inputViewCpntroller.task = taskArray[indexPath!.row]
         }else{
             let task = Task()
