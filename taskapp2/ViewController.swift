@@ -9,17 +9,20 @@
 import UIKit
 import RealmSwift
 
-class ViewController: UIViewController {
+class ViewController: UIViewController,UISearchBarDelegate {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var search1: UISearchBar!
     
-    
+    var task:Task!
     //try!はエラーが起こる可能性がある際に付ける
     let realm = try!Realm()
     //taskArrayは配列　object(クラス名)でクラス指定で一覧を取得、sorted:ascendingで並び替えた橋列を取得
-    let taskArray = try! Realm().objects(Task).sorted("date", ascending: false)
+    var taskArray = try! Realm().objects(Task).sorted("date", ascending: false)
     
-    
+    //カテゴリー用
+    var categoryArray = try! Realm().objects(Task).sorted("date", ascending: false)
+   
     //入力画面がからBackしていた際のTableVeiwを更新させる
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -30,6 +33,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        search1.delegate = self
+        print(taskArray)
     }
 
     override func didReceiveMemoryWarning() {
@@ -119,5 +124,13 @@ class ViewController: UIViewController {
             inputViewCpntroller.task = task
         }
     }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        let searchText = search1.text
+        print(searchText)
+        //categoryArray = try! Realm().objects(Task).filter("category CONTAINS[c] '\(searchText)'").sorted("date", ascending: false)
+        categoryArray = realm.objects(Task).filter("category contains '\(searchBar.text!)'").sorted("date", ascending: false)
+       print(categoryArray)
+        
+    }
 }
-

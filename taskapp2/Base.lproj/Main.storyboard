@@ -26,7 +26,7 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="Xoa-Pn-Jp5"/>
                                 </connections>
                             </tableView>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="bMq-Wf-EQW">
+                            <searchBar contentMode="redraw" placeholder="検索したいカテゴリーを入力してください" translatesAutoresizingMaskIntoConstraints="NO" id="bMq-Wf-EQW">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
@@ -49,6 +49,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="search1" destination="bMq-Wf-EQW" id="w4X-cr-0p5"/>
                         <outlet property="tableView" destination="MLi-eS-rrK" id="nmw-Uc-zeJ"/>
                         <segue destination="IjL-KW-Cmi" kind="show" identifier="cellSegue" id="OZR-09-fRK"/>
                     </connections>
