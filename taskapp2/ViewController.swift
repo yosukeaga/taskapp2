@@ -23,10 +23,13 @@ class ViewController: UIViewController,UISearchBarDelegate {
     //カテゴリー用
     var categoryArray = try! Realm().objects(Task).sorted("date", ascending: false)
    
+    var searchText:String!
+    
     //入力画面がからBackしていた際のTableVeiwを更新させる
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
+        
     }
     
     
@@ -35,6 +38,10 @@ class ViewController: UIViewController,UISearchBarDelegate {
         // Do any additional setup after loading the view, typically from a nib.
         search1.delegate = self
         print(taskArray)
+        
+        let tapGesture: UIGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        self.view.addGestureRecognizer(tapGesture)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -45,7 +52,23 @@ class ViewController: UIViewController,UISearchBarDelegate {
 
     ///DataSourceプロトコル　tableViewのデータの数＝セルの数をreturnで返すメソッド
     func tableView(tableView:UITableView, numberOfRowsInSection section: Int) -> Int {
-      return taskArray.count
+      
+        searchText = search1.text
+        if  searchText.isEmpty  {
+        
+             taskArray = try! Realm().objects(Task).sorted("date", ascending: false)
+            
+             return taskArray.count
+        }else{
+        
+            taskArray = categoryArray
+            
+            return taskArray.count
+        }
+        
+        
+        
+        
          //taskArrayの配列の個数をcountプロパティで数えreturnで返す
     }
     
@@ -126,11 +149,27 @@ class ViewController: UIViewController,UISearchBarDelegate {
     }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        let searchText = search1.text
-        print(searchText)
-        //categoryArray = try! Realm().objects(Task).filter("category CONTAINS[c] '\(searchText)'").sorted("date", ascending: false)
-        categoryArray = realm.objects(Task).filter("category contains '\(searchBar.text!)'").sorted("date", ascending: false)
-       print(categoryArray)
         
+        //searchBar: UISearchBarがあるから必要なかった？
+        searchText = search1.text
+        print(searchText)
+       
+        
+        if searchText.isEmpty{
+            categoryArray = realm.objects(Task).sorted("date", ascending: false)
+        }else{
+        //categoryArray = try! Realm().objects(Task).filter("category CONTAINS[c] '\(searchText)'").sorted("date", ascending: false)
+       categoryArray = realm.objects(Task).filter("category contains '\(searchBar.text!)'").sorted("date", ascending: false)
+       print(categoryArray)
+        }
+        
+        dismissKeyboard()
+        tableView.reloadData()
+    }
+    
+    //キーボードの消去
+    func dismissKeyboard(){
+        view.endEditing(true)
+        tableView.reloadData()
     }
 }
