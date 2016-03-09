@@ -44,7 +44,7 @@ class InputViewController: UIViewController {
     ///画面遷移の際、画面が非表示になるときに呼ばれるメソッド
     override func viewWillDisappear(animated: Bool) {
         
-        //realmに書き込むメソッド
+//(5)        //realmに書き込むメソッド
         try! realm.write {
             self.task.title = self.titleTextField.text!
             self.task.contents = self.contentsTextView.text
@@ -64,7 +64,7 @@ class InputViewController: UIViewController {
     
     func setNotification(task: Task) {
         
-        // すでに同じタスクが登録されていたらキャンセルする
+//(6) (8)       // すでに同じタスクが登録されていたらキャンセルする
         for notification in UIApplication.sharedApplication().scheduledLocalNotifications! {
             if notification.userInfo!["id"] as! Int == task.id {
                 UIApplication.sharedApplication().cancelLocalNotification(notification)

@@ -51,7 +51,7 @@
                     <connections>
                         <outlet property="search1" destination="bMq-Wf-EQW" id="w4X-cr-0p5"/>
                         <outlet property="tableView" destination="MLi-eS-rrK" id="nmw-Uc-zeJ"/>
-                        <segue destination="IjL-KW-Cmi" kind="show" identifier="cellSegue" id="OZR-09-fRK"/>
+                        <segue destination="IjL-KW-Cmi" kind="show" identifier="cellSegue" id="QdR-Le-YJz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -171,6 +171,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="OZR-09-fRK"/>
+        <segue reference="QdR-Le-YJz"/>
     </inferredMetricsTieBreakers>
 </document>

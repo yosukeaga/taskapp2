@@ -15,7 +15,7 @@ class ViewController: UIViewController,UISearchBarDelegate {
     @IBOutlet weak var search1: UISearchBar!
     
     var task:Task!
-    //try!はエラーが起こる可能性がある際に付ける
+   //try!はエラーが起こる可能性がある際に付ける
     let realm = try!Realm()
     //taskArrayは配列　object(クラス名)でクラス指定で一覧を取得、sorted:ascendingで並び替えた橋列を取得
     var taskArray = try! Realm().objects(Task).sorted("date", ascending: false)
@@ -118,7 +118,7 @@ class ViewController: UIViewController,UISearchBarDelegate {
                 }
             }
             
-            // データベースから削除する
+      // データベースから削除する
             try! realm.write {
                          //taskArrayの配列から抜き出してdeleteしている
                 self.realm.delete(self.taskArray[indexPath.row])
@@ -132,9 +132,9 @@ class ViewController: UIViewController,UISearchBarDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let inputViewCpntroller:InputViewController = segue.destinationViewController as!InputViewController
         
-        //cellをタップしたときのパターン
+      //cellをタップしたときのパターン
         if segue.identifier == "cellSegue"{
-        let indexPath = self.tableView.indexPathForSelectedRow
+            let indexPath = self.tableView.indexPathForSelectedRow
             print(indexPath)
             inputViewCpntroller.task = taskArray[indexPath!.row]
         }else{
@@ -150,7 +150,7 @@ class ViewController: UIViewController,UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         
-        //searchBar: UISearchBarがあるから必要なかった？
+     //searchBar: UISearchBarがあるから必要なかった？
         searchText = search1.text
         print(searchText)
        
@@ -170,6 +170,9 @@ class ViewController: UIViewController,UISearchBarDelegate {
     //キーボードの消去
     func dismissKeyboard(){
         view.endEditing(true)
+        tableView.reloadData()
+    }
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         tableView.reloadData()
     }
 }
